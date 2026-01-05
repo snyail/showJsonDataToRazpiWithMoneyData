@@ -3,11 +3,15 @@
 import requests
 import json
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
-URL = ""
+URL = os.getenv("API_URL")
 
 res = requests.get(URL, timeout=10)
 res.raise_for_status()
