@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: sample_app
+    volumes:
+      - ./project/data:/usr/src/data
+      - ./project/app:/usr/src/app
