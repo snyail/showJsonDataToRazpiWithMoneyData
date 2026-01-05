@@ -13,6 +13,10 @@ DATA_DIR.mkdir(exist_ok=True)
 
 URL = os.getenv("API_URL")
 
+
+if not URL:
+    raise RuntimeError("Environment variable 'API_URL' is not set.")
+
 res = requests.get(URL, timeout=10)
 res.raise_for_status()
 
